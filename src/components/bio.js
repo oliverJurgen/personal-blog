@@ -36,10 +36,7 @@ function Bio() {
             <p>
               Written by <strong>{author}</strong>
               {` `}
-              ... Place Socmed Icons here
-              {/* <a href={`https://twitter.com/${social.twitter}`}>
-                You should follow him on Twitter
-              </a> */}
+              ... Place Socmed Icons here in the future
             </p>
           </Container>
         )
