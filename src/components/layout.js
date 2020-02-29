@@ -15,7 +15,6 @@ const Layout = props => {
     header = (
       <h1
         style={{
-          ...scale(1.5),
           marginBottom: rhythm(1.5),
           marginTop: 0,
         }}
@@ -34,12 +33,7 @@ const Layout = props => {
     )
   } else {
     header = (
-      <h3
-        style={{
-          fontFamily: `Montserrat, sans-serif`,
-          marginTop: 0,
-        }}
-      >
+      <h3>
         <Link
           style={{
             boxShadow: `none`,
@@ -60,17 +54,17 @@ const Layout = props => {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          maxWidth: rhythm(26),
+          // padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
         <header>{header}</header>
         <main>{children}</main>
       </div>
       <Footer>
-        © {new Date().getFullYear()}, Built with
+        © {new Date().getFullYear()}, Built in a weekend, will update in the
+        future lol
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
       </Footer>
     </Wrapper>
   )

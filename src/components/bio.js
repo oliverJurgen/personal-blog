@@ -34,12 +34,12 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong> who lives and works in Manila
-              Philipppines, building useful things.
+              Written by <strong>{author}</strong>
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
+              ... Place Socmed Icons here
+              {/* <a href={`https://twitter.com/${social.twitter}`}>
                 You should follow him on Twitter
-              </a>
+              </a> */}
             </p>
           </Container>
         )
