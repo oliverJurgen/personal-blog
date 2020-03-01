@@ -73,7 +73,8 @@ const NavWrapper = styled.div`
 
 const Hamburger = styled.button`
   font-size: 24px;
-  background: transparent;
+  /* background: transparent; */
+  background: #fffdd0;
   border: none;
   padding: 0 15px;
   color: ${props => props.theme.colors.highlighted};
@@ -81,13 +82,14 @@ const Hamburger = styled.button`
   ${mediaQuery[1]} {
     display: none;
   }
-
-  height: 6rem;
-  width: 6rem;
   border-radius: 50%;
   position: fixed;
-  top: 6.5rem;
-  right: 6.5rem;
+  top: 1rem;
+  right: 1rem;
+
+  /* height: 6rem;
+  width: 6rem; */
+
   /* background-image: radial-gradient($color-primary-light, $color-primary-dark); */
-  z-index: 1000;
+  /* z-index: 1000; */
 `

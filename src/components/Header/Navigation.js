@@ -17,11 +17,15 @@ const NavBar = styled.nav`
   top: 0;
   right: 0;
   height: 100vh;
-  width: 280px;
-  background: ${props => {
+  /* width: 280px; */
+  width: 100%;
+  background: ${({ isNavVisible }) =>
+    isNavVisible ? "#FFFDD0" : "transparent"};
+  /* background: transparent; */
+  /* background: ${props => {
     console.log(props)
     return props.theme.colors.mainBackground
-  }};
+  }}; */
   transform: translateX(${props => (props.isNavVisible ? "0%" : "100%")});
   transition: all 0.2s ease-in-out;
 
@@ -65,7 +69,8 @@ const NavBar = styled.nav`
       &:hover,
       &:focus {
         color: ${props => props.theme.colors.primary};
-        box-shadow: inset 12px 0 0px -7px ${props => props.theme.colors.primary};
+        box-shadow: inset 12px 0 0px -7px ${props =>
+          props.theme.colors.primary};
 
         ${mediaQuery[1]} {
           box-shadow: none;

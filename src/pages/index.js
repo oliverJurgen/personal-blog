@@ -23,10 +23,7 @@ const IndexPage = props => {
   const { location } = props
 
   return (
-    <Layout
-      location={location}
-      title="Site Title - I dunno what to put here yet but this should be the Home page"
-    >
+    <Layout location={location} title="Site title will be here">
       <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
       <Home />
     </Layout>
