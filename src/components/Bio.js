@@ -8,7 +8,9 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Image from "gatsby-image"
-import styled from "styled-components"
+import Avatar from "./Avatar"
+// import styled from "styled-components"
+import styled from "@emotion/styled"
 
 import { rhythm } from "../utils/typography"
 
@@ -20,19 +22,7 @@ function Bio() {
         const { author, social } = data.site.siteMetadata
         return (
           <Container>
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
+            <Avatar />
             <p>
               Written by <strong>{author}</strong>
               {` `}

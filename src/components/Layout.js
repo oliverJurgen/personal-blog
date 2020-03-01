@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
-import styled from "styled-components"
+// import styled from "styled-components"
+import styled from "@emotion/styled"
+import Header from "./Header"
 
 import { rhythm, scale } from "../utils/typography"
 
@@ -13,23 +15,26 @@ const Layout = props => {
 
   if (location.pathname === rootPath || location.pathname === blogPath) {
     header = (
-      <h1
-        style={{
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        <Link
+      <>
+        <Header />
+        <h1
           style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
+            marginBottom: rhythm(1.5),
+            marginTop: 0,
           }}
-          to={location.pathname === blogPath ? `/blog/` : `/`}
         >
-          {title}
-        </Link>
-      </h1>
+          <Link
+            style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `inherit`,
+            }}
+            to={location.pathname === blogPath ? `/blog/` : `/`}
+          >
+            {title}
+          </Link>
+        </h1>
+      </>
     )
   } else {
     header = (
