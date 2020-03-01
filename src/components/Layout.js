@@ -17,44 +17,42 @@ const Layout = props => {
 
   const rootPath = "/"
   const blogPath = "/blog/"
-  let header
 
-  if (location.pathname === rootPath || location.pathname === blogPath) {
-    header = (
-      <h1
+  const isHomeOrBlogPage =
+    location.pathname === rootPath || location.pathname === blogPath
+
+  const contentHeader = isHomeOrBlogPage ? (
+    <h1
+      css={css`
+        margin-top: ${rhythm(1)};
+        margin-bottom: ${rhythm(1.5)};
+      `}
+    >
+      <Link
         css={css`
-          margin-top: ${rhythm(1)};
-          margin-bottom: ${rhythm(1.5)};
+          box-shadow: none;
+          text-decoration: none;
+          color: inherit;
         `}
+        to={location.pathname === blogPath ? `/blog/` : `/`}
       >
-        <Link
-          css={css`
-            box-shadow: none;
-            text-decoration: none;
-            color: inherit;
-          `}
-          to={location.pathname === blogPath ? `/blog/` : `/`}
-        >
-          {`${title}`}
-        </Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <h3>
-        <Link
-          css={css`
-            box-shadow: none;
-            text-decoration: none;
-            color: inherit;
-          `}
-          to="/blog/"
-        >
-          <FontAwesomeIcon icon="arrow-left" /> {title}
-        </Link>
-      </h3>
-    )
-  }
+        {`${title}`}
+      </Link>
+    </h1>
+  ) : (
+    <h3>
+      <Link
+        css={css`
+          box-shadow: none;
+          text-decoration: none;
+          color: inherit;
+        `}
+        to="/blog/"
+      >
+        <FontAwesomeIcon icon="arrow-left" /> {title}
+      </Link>
+    </h3>
+  )
 
   return (
     <ModeContextProvider>
@@ -68,7 +66,7 @@ const Layout = props => {
           }}
         >
           <Header />
-          <header>{header}</header>
+          <header className="pt-6">{contentHeader}</header>
           <main>{children}</main>
         </div>
         <Footer>

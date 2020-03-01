@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+// import { Switch } from "@rebass/forms"
 import Navigation from "./Navigation"
 import Avatar from "../Avatar"
 import { mediaQuery } from "../../utils/theme"
@@ -16,7 +17,10 @@ const Header = () => {
     <HeaderWrapper>
       <div>
         <Link to="/">
-          <Avatar className="mt-5" />
+          <Avatar
+            className="mt-4"
+            // className="mt-5"
+          />
         </Link>
 
         <NavWrapper>
@@ -37,7 +41,7 @@ const Header = () => {
 export default Header
 
 const HeaderWrapper = styled.header`
-  height: "100px";
+  height: "80px";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,4 +81,13 @@ const Hamburger = styled.button`
   ${mediaQuery[1]} {
     display: none;
   }
+
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  /* background-image: radial-gradient($color-primary-light, $color-primary-dark); */
+  z-index: 1000;
 `
