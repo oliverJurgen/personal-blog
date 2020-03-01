@@ -1,10 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import styled from "@emotion/styled"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
-import { mediaQuery } from "../../theme"
+import { mediaQuery } from "../../utils/theme"
 
 const links = [
   { title: "Home", url: "/" },

@@ -2,13 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import { Global, css } from "@emotion/core"
 
-import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Button from "../components/Button"
 import Avatar from "../components/Avatar"
 import ModeContext from "../contexts/ModeContext"
 
-const IndexPage = ({ location }) => (
+// eslint-disable-next-line react/prop-types
+const IndexPage = () => (
   <ModeContext>
     <Global
       styles={css`
@@ -22,7 +22,7 @@ const IndexPage = ({ location }) => (
       <span role="img" aria-label="wave emoji">
         👋
       </span>
-      I'm Oliver
+      Im Oliver
     </h5>
 
     <Link to="/blog/">

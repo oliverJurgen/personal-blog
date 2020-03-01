@@ -1,13 +1,14 @@
 import React from "react"
 import styled from "@emotion/styled"
-import Navigation from "./Navigation"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Navigation from "./Navigation"
 import Avatar from "../Avatar"
+import { mediaQuery } from "../../utils/theme"
 
 const Header = () => {
   // for responsive styles
-  const [isNavVisible, setIsNavVisible] = ReactuseState(false)
+  const [isNavVisible, setIsNavVisible] = React.useState(false)
 
   const toggleNavigation = () => setIsNavVisible(!isNavVisible)
 
@@ -15,7 +16,7 @@ const Header = () => {
     <HeaderWrapper>
       <div>
         <Link to="/">
-          <Avatar width={avatarDimension} height={avatarDimension} />
+          <Avatar />
         </Link>
 
         <NavWrapper>
@@ -26,7 +27,7 @@ const Header = () => {
           <Hamburger onClick={toggleNavigation}>
             <FontAwesomeIcon icon="bars" />
           </Hamburger>
-          <ThemeSwitch />
+          {/* <ThemeSwitch /> */}
         </NavWrapper>
       </div>
     </HeaderWrapper>

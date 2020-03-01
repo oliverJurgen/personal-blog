@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -8,12 +9,14 @@ import SEO from "../components/Seo"
 import { rhythm, scale } from "../utils/typography"
 
 const BlogPostTemplate = props => {
-  const post = props.data.mdx
-  const siteTitle = props.data.site.siteMetadata.title
-  const { previous, next } = props.pageContext
+  const { data, pageContext, location } = props
+  const { mdx: post } = data
+
+  const siteTitle = data.site.siteMetadata.title
+  const { previous, next } = pageContext
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}

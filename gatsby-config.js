@@ -16,6 +16,7 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-feed-mdx`,
+    "gatsby-plugin-eslint",
     {
       resolve: `gatsby-plugin-emotion`,
       options: {

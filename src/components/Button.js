@@ -1,7 +1,6 @@
+/* eslint-disable react/destructuring-assignment */
 import React from "react"
-// import styled from "styled-components"
-import styled from '@emotion/styled'
-
+import styled from "@emotion/styled"
 
 const Button = props => (
   <ButtonWrapper props={props}>{props.children}</ButtonWrapper>

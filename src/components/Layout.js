@@ -1,16 +1,21 @@
+/* eslint-disable react/prop-types */
 import React from "react"
 import { Link } from "gatsby"
 // import styled from "styled-components"
 import styled from "@emotion/styled"
 import Header from "./Header"
 
+// eslint-disable-next-line no-unused-vars
 import { rhythm, scale } from "../utils/typography"
 
 const Layout = props => {
   const { location, title, children } = props
 
-  const rootPath = `${__PATH_PREFIX__}/`
-  const blogPath = `${__PATH_PREFIX__}/blog/`
+  // const rootPath = `${__PATH_PREFIX__}/`
+  // const blogPath = `${__PATH_PREFIX__}/blog/`
+
+  const rootPath = "/"
+  const blogPath = "/blog/"
   let header
 
   if (location.pathname === rootPath || location.pathname === blogPath) {
@@ -45,7 +50,7 @@ const Layout = props => {
             textDecoration: `none`,
             color: `inherit`,
           }}
-          to={`/blog/`}
+          to="/blog/"
         >
           {title}
         </Link>
