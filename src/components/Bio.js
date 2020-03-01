@@ -41,11 +41,17 @@ function Bio() {
         const { author, social } = data.site.siteMetadata
         return (
           <Container>
-            <Avatar />
+            <Avatar
+              style={{
+                marginRight: "10px",
+              }}
+            />
             <p>
-              Written by <strong>{author}</strong>
+              Will be written by <strong>{author}</strong>
               {` `}
-              ... Place Socmed Icons here in the future
+              ... Place Social Media Icons here...
+              {` `}
+              ...I dont know what Im gonna write yet
             </p>
           </Container>
         )

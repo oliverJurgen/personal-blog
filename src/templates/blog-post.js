@@ -2,6 +2,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Bio from "../components/Bio"
 import Layout from "../components/Layout"
@@ -52,14 +53,14 @@ const BlogPostTemplate = props => {
         <li>
           {previous && (
             <Link to={`blog${previous.fields.slug}`} rel="prev">
-              ← {previous.frontmatter.title}
+              <FontAwesomeIcon icon="arrow-left" /> {previous.frontmatter.title}
             </Link>
           )}
         </li>
         <li>
           {next && (
             <Link to={`blog${next.fields.slug}`} rel="next">
-              {next.frontmatter.title} →
+              {next.frontmatter.title} <FontAwesomeIcon icon="arrow-right" />
             </Link>
           )}
         </li>

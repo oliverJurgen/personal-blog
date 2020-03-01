@@ -1,18 +1,19 @@
 /* eslint-disable react/prop-types */
 import React from "react"
 import { Link } from "gatsby"
-// import styled from "styled-components"
 import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Header from "./Header"
+import ModeContextProvider from "../contexts/ModeContext"
 
-// eslint-disable-next-line no-unused-vars
 import { rhythm, scale } from "../utils/typography"
 
 const Layout = props => {
   const { location, title, children } = props
 
   // const rootPath = `${__PATH_PREFIX__}/`
-  // const blogPath = `${__PATH_PREFIX__}/blog/`
+  // const blogPath = `${__PATH_PREFIX__}/blog/`s
 
   const rootPath = "/"
   const blogPath = "/blog/"
@@ -20,63 +21,65 @@ const Layout = props => {
 
   if (location.pathname === rootPath || location.pathname === blogPath) {
     header = (
-      <>
-        <Header />
-        <h1
-          style={{
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
+      <h1
+        css={css`
+          margin-top: ${rhythm(1)};
+          margin-bottom: ${rhythm(1.5)};
+        `}
+      >
+        <Link
+          css={css`
+            box-shadow: none;
+            text-decoration: none;
+            color: inherit;
+          `}
+          to={location.pathname === blogPath ? `/blog/` : `/`}
         >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={location.pathname === blogPath ? `/blog/` : `/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      </>
+          {`${title}`}
+        </Link>
+      </h1>
     )
   } else {
     header = (
       <h3>
         <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
+          css={css`
+            box-shadow: none;
+            text-decoration: none;
+            color: inherit;
+          `}
           to="/blog/"
         >
-          {title}
+          <FontAwesomeIcon icon="arrow-left" /> {title}
         </Link>
       </h3>
     )
   }
 
   return (
-    <Wrapper>
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>{header}</header>
-        <main>{children}</main>
-      </div>
-      <Footer>
-        © {new Date().getFullYear()}, Built in a weekend, will update in the
-        future lol
-        {` `}
-      </Footer>
-    </Wrapper>
+    <ModeContextProvider>
+      <Wrapper>
+        <div
+          style={{
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(24),
+            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          }}
+        >
+          <Header />
+          <header>{header}</header>
+          <main>{children}</main>
+        </div>
+        <Footer>
+          © {new Date().getFullYear()}, Built in a weekend, will update in the
+          future, I promise lol.
+          {` `}
+          <br />
+          Powered by Gatsby and React
+        </Footer>
+      </Wrapper>
+    </ModeContextProvider>
   )
 }
 

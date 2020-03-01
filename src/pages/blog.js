@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react"
 import { Link, graphql } from "gatsby"
 
@@ -8,12 +9,12 @@ import { rhythm } from "../utils/typography"
 import Button from "../components/Button"
 
 const Blog = props => {
-  const { data } = props
+  const { data, location } = props
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMdx.edges
 
   return (
-    <Layout location={props.location} title={siteTitle}>
+    <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
       <div style={{ margin: "20px 0 40px" }}>
@@ -35,6 +36,7 @@ const Blog = props => {
               </h3>
               <small>{node.frontmatter.date}</small>
               <p
+                // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}
@@ -43,9 +45,6 @@ const Blog = props => {
           )
         })}
       </div>
-      <Link to="/">
-        <Button marginTop="85px">Go Home</Button>
-      </Link>
     </Layout>
   )
 }

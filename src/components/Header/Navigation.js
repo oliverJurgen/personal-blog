@@ -7,8 +7,8 @@ import { mediaQuery } from "../../utils/theme"
 
 const links = [
   { title: "Home", url: "/" },
-  { title: "About", url: "/blog" },
-  // { title: "Contact", url: "/contact" },
+  { title: "Blog", url: "/blog/" },
+  { title: "Code Snippets", url: "/code-snippets" },
 ]
 
 const NavBar = styled.nav`
@@ -18,7 +18,10 @@ const NavBar = styled.nav`
   right: 0;
   height: 100vh;
   width: 280px;
-  background: ${props => props.theme.colors.mainBackground};
+  background: ${props => {
+    console.log(props)
+    return props.theme.colors.mainBackground
+  }};
   transform: translateX(${props => (props.isNavVisible ? "0%" : "100%")});
   transition: all 0.2s ease-in-out;
 
@@ -103,7 +106,9 @@ const Close = styled.button`
   }
 `
 
-const Navigation = ({ isNavVisible, toggleNavigation }) => {
+const Navigation = props => {
+  const { isNavVisible, toggleNavigation } = props
+  console.log(props)
   return (
     <>
       <NavBar isNavVisible={isNavVisible}>
@@ -116,7 +121,7 @@ const Navigation = ({ isNavVisible, toggleNavigation }) => {
               <Link
                 to={url}
                 activeClassName="active"
-                onClick={toggleNavigation}
+                // onClick={toggleNavigation}
               >
                 {title}
               </Link>
