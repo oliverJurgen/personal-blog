@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 module.exports = {
   siteMetadata: {
     // edit below
@@ -17,7 +19,15 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-feed-mdx`,
     "gatsby-plugin-eslint",
-    "gatsby-plugin-sass",
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        postCssPlugins: [
+          require("tailwindcss"),
+          // require("./tailwind.config.js"), // Optional: Load custom Tailwind CSS configuration
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-emotion`,
       options: {

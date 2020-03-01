@@ -49,7 +49,7 @@ function Bio() {
             <p>
               Will be written by <strong>{author}</strong>
               {` `}
-              ... Place Social Media Icons here...
+              ... Place Social Media Links here...
               {` `}
               ...I dont know what Im gonna write yet
             </p>
