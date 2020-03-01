@@ -16,7 +16,7 @@ const Header = () => {
     <HeaderWrapper>
       <div>
         <Link to="/">
-          <Avatar />
+          <Avatar className="mt-5" />
         </Link>
 
         <NavWrapper>

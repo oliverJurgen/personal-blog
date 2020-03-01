@@ -14,6 +14,7 @@ import {
 import SEO from "../components/Seo"
 import Home from "../components/Home"
 import Layout from "../components/Layout"
+import "../styles/global.scss"
 
 library.add(faBars, faTimes, faArrowRight, faArrowLeft, faEnvelope)
 
