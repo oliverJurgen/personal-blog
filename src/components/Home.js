@@ -1,8 +1,11 @@
+// eslint-disable-next-line no-unused-vars
 import React from "react"
+/** @jsx jsx */
+import { Styled, jsx } from "theme-ui"
 
 const Home = () => {
   return (
-    <h5>
+    <Styled.h5>
       <span className="ml-1" role="img" aria-label="waving">
         👋
       </span>
@@ -12,15 +15,37 @@ const Home = () => {
       <span className="ml-1" role="img" aria-label="Programmer">
         👨‍💻
       </span>
-      <h6>I&apos;m Oliver</h6> <br />
-      <p
-      //  className="pt-5"
+      <Styled.h6
+        sx={{
+          fontSize: 4,
+        }}
+      >
+        I&apos;m Oliver
+      </Styled.h6>{" "}
+      <br />
+      <Styled.p
+        sx={{
+          fontSize: 3,
+        }}
       >
         I&apos;ll worry about the content later.
-      </p>
-      <p>I&apos;ll setup the site first.</p>
-      <p> I dunno what to put here yet but this should be the Home page</p>
-    </h5>
+      </Styled.p>
+      <Styled.p
+        sx={{
+          fontSize: 3,
+        }}
+      >
+        I&apos;ll setup the site first.
+      </Styled.p>
+      <Styled.p
+        sx={{
+          fontSize: 3,
+        }}
+      >
+        {" "}
+        I dunno what to put here yet but this should be the Home page
+      </Styled.p>
+    </Styled.h5>
   )
 }
 

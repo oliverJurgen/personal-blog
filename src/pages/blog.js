@@ -2,6 +2,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
+/** @jsx jsx */
+import { Styled, jsx } from "theme-ui"
 import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
@@ -22,7 +24,10 @@ const Blog = props => {
           const title = node.frontmatter.title || node.fields.slug
           return (
             <div key={node.fields.slug}>
-              <h3
+              <Styled.h3
+                sx={{
+                  fontSize: 5,
+                }}
                 style={{
                   marginBottom: rhythm(1 / 4),
                 }}
@@ -33,7 +38,7 @@ const Blog = props => {
                 >
                   {title}
                 </Link>
-              </h3>
+              </Styled.h3>
               <small>{node.frontmatter.date}</small>
               <p
                 // eslint-disable-next-line react/no-danger

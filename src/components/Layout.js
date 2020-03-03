@@ -3,7 +3,10 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
+/** @jsx jsx */
+import { Styled, jsx } from "theme-ui"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 import Header from "./Header"
 import ModeContextProvider from "../contexts/ModeContext"
 
@@ -22,25 +25,17 @@ const Layout = props => {
     location.pathname === rootPath || location.pathname === blogPath
 
   const contentHeader = isHomeOrBlogPage ? (
-    <h1
-      css={css`
-        margin-top: ${rhythm(1)};
-        margin-bottom: ${rhythm(1.5)};
-      `}
+    <Styled.h1
+      sx={{
+        fontSize: 6,
+      }}
     >
-      <Link
-        css={css`
-          box-shadow: none;
-          text-decoration: none;
-          color: inherit;
-        `}
-        to={location.pathname === blogPath ? `/blog/` : `/`}
-      >
+      <Link to={location.pathname === blogPath ? `/blog/` : `/`}>
         {`${title}`}
       </Link>
-    </h1>
+    </Styled.h1>
   ) : (
-    <h3>
+    <Styled.h3>
       <Link
         css={css`
           box-shadow: none;
@@ -51,12 +46,16 @@ const Layout = props => {
       >
         <FontAwesomeIcon icon="arrow-left" /> {title}
       </Link>
-    </h3>
+    </Styled.h3>
   )
 
   return (
     <ModeContextProvider>
-      <Wrapper>
+      <Styled.root
+        sx={{
+          minHeight: "100vh",
+        }}
+      >
         <div
           style={{
             marginLeft: `auto`,
@@ -66,7 +65,7 @@ const Layout = props => {
           }}
         >
           <Header />
-          <header className="pt-6">{contentHeader}</header>
+          <header className="pt-10">{contentHeader}</header>
           <main>{children}</main>
         </div>
         <Footer>
@@ -76,14 +75,14 @@ const Layout = props => {
           <br />
           Powered by Gatsby and React
         </Footer>
-      </Wrapper>
+      </Styled.root>
     </ModeContextProvider>
   )
 }
 
-const Wrapper = styled.div`
-  min-height: 100vh;
-`
+// const Wrapper = styled.div`
+//   min-height: 100vh;
+// `
 
 const Footer = styled.footer`
   text-align: center;

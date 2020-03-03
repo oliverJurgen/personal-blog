@@ -9,9 +9,6 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
 import Avatar from "./Avatar"
-// import styled from "styled-components"
-
-// import { rhythm } from "../utils/typography"
 
 const bioQuery = graphql`
   query BioQuery {

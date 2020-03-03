@@ -1,13 +1,47 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { Link } from "gatsby"
+/** @jsx jsx */
+import { Styled, jsx } from "theme-ui"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 // import { Switch } from "@rebass/forms"
+import { useModeContext } from "../../contexts/ModeContext"
 import Navigation from "./Navigation"
 import Avatar from "../Avatar"
 import { mediaQuery } from "../../utils/theme"
 
+const Dot = () => (
+  <svg
+    viewBox="0 0 32 32"
+    width="34"
+    height="34"
+    fill="currentcolor"
+    style={{
+      display: "block",
+    }}
+  >
+    <circle
+      cx="16"
+      cy="16"
+      r="14"
+      fill="none"
+      stroke="currentcolor"
+      strokeWidth="4"
+    />
+    <path
+      d={`
+        M 16 0
+        A 16 16 0 0 0 16 32
+        z
+      `}
+    />
+  </svg>
+)
+
 const Header = () => {
+  // const { theme, colorMode } = useThemeUI()
+  const { cycleThemes } = useModeContext()
+
   // for responsive styles
   const [isNavVisible, setIsNavVisible] = React.useState(false)
 
@@ -15,13 +49,33 @@ const Header = () => {
 
   return (
     <HeaderWrapper>
-      <div>
-        <Link to="/">
-          <Avatar
-            className="mt-4"
-            // className="mt-5"
-          />
-        </Link>
+      <div className="mt-4">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Link to="/">
+            <Avatar className="mt-3 mr-3" />
+          </Link>
+
+          <Styled.div
+            className="mb-3"
+            sx={{
+              color: "primary",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+            }}
+            onClick={cycleThemes}
+          >
+            <Dot />
+            <span className="ml-2"> change theme</span>
+          </Styled.div>
+        </div>
 
         <NavWrapper>
           <Navigation
@@ -47,7 +101,7 @@ const HeaderWrapper = styled.header`
   justify-content: center;
   padding: 0 ${props => props.theme.contentPadding};
   position: fixed;
-  z-index: 9999;
+  z-index: 2;
   top: 0;
   left: 0;
   right: 0;
@@ -84,7 +138,7 @@ const Hamburger = styled.button`
   }
   border-radius: 50%;
   position: fixed;
-  top: 1rem;
+  top: 2.5rem;
   right: 1rem;
 
   /* height: 6rem;

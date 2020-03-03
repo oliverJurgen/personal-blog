@@ -9,11 +9,12 @@ const links = [
   { title: "Home", url: "/" },
   { title: "Blog", url: "/blog/" },
   { title: "Code Snippets", url: "/code-snippets" },
+  { title: "Resources", url: "/resources" },
 ]
 
 const NavBar = styled.nav`
   position: fixed;
-  z-index: 9999;
+  z-index: 2;
   top: 0;
   right: 0;
   height: 100vh;
@@ -23,7 +24,6 @@ const NavBar = styled.nav`
     isNavVisible ? "#FFFDD0" : "transparent"};
   /* background: transparent; */
   /* background: ${props => {
-    console.log(props)
     return props.theme.colors.mainBackground
   }}; */
   transform: translateX(${props => (props.isNavVisible ? "0%" : "100%")});
@@ -83,7 +83,7 @@ const NavBar = styled.nav`
 const NavOverlay = styled.div`
   display: ${props => (props.isNavVisible ? "block" : "none")};
   position: fixed;
-  z-index: 9998;
+  z-index: 2;
   top: 0;
   bottom: 0;
   left: 0;
@@ -113,7 +113,7 @@ const Close = styled.button`
 
 const Navigation = props => {
   const { isNavVisible, toggleNavigation } = props
-  console.log(props)
+
   return (
     <>
       <NavBar isNavVisible={isNavVisible}>
