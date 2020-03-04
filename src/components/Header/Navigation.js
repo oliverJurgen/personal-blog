@@ -68,9 +68,9 @@ const NavBar = styled.nav`
       &.active,
       &:hover,
       &:focus {
-        color: ${props => props.theme.colors.primary};
-        box-shadow: inset 12px 0 0px -7px ${props =>
-          props.theme.colors.primary};
+        /* color: ${props => props.theme.colors.primary}; */
+        /* box-shadow: inset 12px 0 0px -7px ${props =>
+          props.theme.colors.primary}; */
 
         ${mediaQuery[1]} {
           box-shadow: none;
