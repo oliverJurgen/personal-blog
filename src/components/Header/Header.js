@@ -4,8 +4,7 @@ import { Link } from "gatsby"
 /** @jsx jsx */
 import { Styled, jsx } from "theme-ui"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import { Switch } from "@rebass/forms"
-import { useModeContext } from "../../contexts/ModeContext"
+import { useThemeContext } from "../../contexts/ThemeContext"
 import Navigation from "./Navigation"
 import Avatar from "../Avatar"
 import { mediaQuery } from "../../utils/theme"
@@ -39,8 +38,7 @@ const Dot = () => (
 )
 
 const Header = () => {
-  // const { theme, colorMode } = useThemeUI()
-  const { cycleThemes } = useModeContext()
+  const { cycleThemes } = useThemeContext()
 
   // for responsive styles
   const [isNavVisible, setIsNavVisible] = React.useState(false)
@@ -73,7 +71,7 @@ const Header = () => {
             onClick={cycleThemes}
           >
             <Dot />
-            <span className="ml-2"> change theme</span>
+            {/* <span className="ml-2"> change theme</span> */}
           </Styled.div>
         </div>
 

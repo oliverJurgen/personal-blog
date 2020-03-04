@@ -4,7 +4,7 @@ import rebass from "@rebass/preset"
 import * as themeui from "@theme-ui/presets"
 import { merge } from "lodash"
 
-const ModeContext = React.createContext(null)
+const ThemeContext = React.createContext(null)
 const { base, dark, deep, funk, tosh } = themeui
 const presets = {
   base,
@@ -19,7 +19,7 @@ const presets = {
 const themes = [...Object.keys(presets)]
 
 // eslint-disable-next-line react/prop-types
-const ModeContextProvider = ({ children }) => {
+const ThemeContextProvider = ({ children }) => {
   const isWindowDefined = typeof window !== "undefined"
   const currentTheme = localStorage.getItem("currentTheme")
 
@@ -44,12 +44,12 @@ const ModeContextProvider = ({ children }) => {
   const finalTheme = merge({}, rebass, presets[theme])
 
   return (
-    <ModeContext.Provider value={{ cycleThemes, themes }}>
+    <ThemeContext.Provider value={{ cycleThemes, themes, theme: finalTheme }}>
       <ThemeProvider theme={finalTheme}>{children}</ThemeProvider>
-    </ModeContext.Provider>
+    </ThemeContext.Provider>
   )
 }
 
-export const useModeContext = () => React.useContext(ModeContext)
+export const useThemeContext = () => React.useContext(ThemeContext)
 
-export default ModeContextProvider
+export default ThemeContextProvider

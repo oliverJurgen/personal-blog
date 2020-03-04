@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+// eslint-disable-next-line no-unused-vars
 import React from "react"
 import { Link } from "gatsby"
 import styled from "@emotion/styled"
@@ -8,9 +9,8 @@ import { Styled, jsx } from "theme-ui"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import Header from "./Header"
-import ModeContextProvider from "../contexts/ModeContext"
 
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 
 const Layout = props => {
   const { location, title, children } = props
@@ -25,15 +25,16 @@ const Layout = props => {
     location.pathname === rootPath || location.pathname === blogPath
 
   const contentHeader = isHomeOrBlogPage ? (
-    <Styled.h1
+    <h1
       sx={{
         fontSize: 6,
+        fontFamily: "body",
       }}
     >
       <Link to={location.pathname === blogPath ? `/blog/` : `/`}>
         {`${title}`}
       </Link>
-    </Styled.h1>
+    </h1>
   ) : (
     <Styled.h3>
       <Link
@@ -50,33 +51,31 @@ const Layout = props => {
   )
 
   return (
-    <ModeContextProvider>
-      <Styled.root
-        sx={{
-          minHeight: "100vh",
+    <Styled.root
+      sx={{
+        minHeight: "100vh",
+      }}
+    >
+      <div
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(24),
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <div
-          style={{
-            marginLeft: `auto`,
-            marginRight: `auto`,
-            maxWidth: rhythm(24),
-            padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-          }}
-        >
-          <Header />
-          <header className="pt-10">{contentHeader}</header>
-          <main>{children}</main>
-        </div>
-        <Footer>
-          © {new Date().getFullYear()}, Built in a weekend, will update in the
-          future, I promise lol.
-          {` `}
-          <br />
-          Powered by Gatsby and React
-        </Footer>
-      </Styled.root>
-    </ModeContextProvider>
+        <Header />
+        <header className="pt-10">{contentHeader}</header>
+        <main>{children}</main>
+      </div>
+      <Footer>
+        © {new Date().getFullYear()}, Built in a weekend, will update in the
+        future, I promise lol.
+        {` `}
+        <br />
+        Powered by Gatsby and React
+      </Footer>
+    </Styled.root>
   )
 }
 

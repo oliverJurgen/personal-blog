@@ -1,7 +1,4 @@
 import React from "react"
-// import { Link } from "gatsby"
-// import Button from "../components/Button"
-// import { css } from "@emotion/core"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import {
   faBars,
@@ -11,6 +8,7 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons"
 
+import ThemeContextProvider from "../contexts/ThemeContext"
 import SEO from "../components/Seo"
 import Home from "../components/Home"
 import Layout from "../components/Layout"
@@ -23,10 +21,15 @@ const IndexPage = props => {
   const { location } = props
 
   return (
-    <Layout location={location} title="Site title will be here">
-      <SEO title="Home" keywords={[`blog`, `gatsby`, `javascript`, `react`]} />
-      <Home />
-    </Layout>
+    <ThemeContextProvider>
+      <Layout location={location} title="Site title will be here">
+        <SEO
+          title="Home"
+          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
+        />
+        <Home />
+      </Layout>
+    </ThemeContextProvider>
   )
 }
 
