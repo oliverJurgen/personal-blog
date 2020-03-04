@@ -21,7 +21,9 @@ const themes = [...Object.keys(presets)]
 // eslint-disable-next-line react/prop-types
 const ThemeContextProvider = ({ children }) => {
   const isWindowDefined = typeof window !== "undefined"
-  const currentTheme = localStorage.getItem("currentTheme")
+  const currentTheme = isWindowDefined
+    ? localStorage.getItem("currentTheme")
+    : null
 
   const [theme, setTheme] = React.useState(currentTheme || "base")
 
