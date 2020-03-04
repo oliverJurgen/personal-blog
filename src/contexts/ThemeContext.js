@@ -4,7 +4,13 @@ import rebass from "@rebass/preset"
 import * as themeui from "@theme-ui/presets"
 import { merge } from "lodash"
 
-const ThemeContext = React.createContext(null)
+const defaultContext = {
+  cycleThemes: () => null,
+  themes: [],
+  theme: {},
+}
+
+const ThemeContext = React.createContext(defaultContext)
 const { base, dark, deep, funk, tosh } = themeui
 const presets = {
   base,
