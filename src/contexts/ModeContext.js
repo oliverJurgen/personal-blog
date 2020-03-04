@@ -20,12 +20,13 @@ const themes = [...Object.keys(presets)]
 
 // eslint-disable-next-line react/prop-types
 const ModeContextProvider = ({ children }) => {
+  const isWindowDefined = typeof window !== "undefined"
   const currentTheme = localStorage.getItem("currentTheme")
 
   const [theme, setTheme] = React.useState(currentTheme || "base")
 
   React.useEffect(() => {
-    if (localStorage.getItem("currentTheme") === null) {
+    if (isWindowDefined && localStorage.getItem("currentTheme") === null) {
       localStorage.setItem("currentTheme", "base")
     }
   })
@@ -33,7 +34,10 @@ const ModeContextProvider = ({ children }) => {
   const cycleThemes = () => {
     const i = (themes.indexOf(currentTheme) + 1) % themes.length
 
-    localStorage.setItem("currentTheme", themes[i])
+    if (isWindowDefined) {
+      localStorage.setItem("currentTheme", themes[i])
+    }
+
     setTheme(themes[i])
   }
 
