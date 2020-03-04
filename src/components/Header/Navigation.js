@@ -53,7 +53,7 @@ const NavBar = styled.nav`
     li > a {
       display: block;
       text-decoration: none;
-      color: ${props => props.theme.colors.base};
+      /* color: ${props => props.theme.colors.base}; */
       font-size: 20px;
       font-weight: bold;
       padding: 0 15px;
@@ -90,7 +90,7 @@ const NavOverlay = styled.div`
   right: 0;
   width: 100vw;
   height: 100vh;
-  background-color: ${props => props.theme.colors.highlighted};
+  /* background-color: ${props => props.theme.colors.highlighted}; */
   opacity: 0.6;
   ${mediaQuery[1]} {
     display: none;
@@ -99,7 +99,7 @@ const NavOverlay = styled.div`
 
 const Close = styled.button`
   font-size: 24px;
-  color: ${props => props.theme.colors.highlighted};
+  /* color: ${props => props.theme.colors.highlighted}; */
   background: transparent;
   border: none;
   padding: 0 15px;

@@ -97,15 +97,15 @@ const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 ${props => props.theme.contentPadding};
+  /* padding: 0 ${props => props.theme.contentPadding}; */
   position: fixed;
   z-index: 2;
   top: 0;
   left: 0;
   right: 0;
-  background-color: ${props => props.theme.colors.mainBackground};
-  box-shadow: ${props =>
-    props.isScrolled && `0px 0px 10px ${props.theme.colors.headerShadow}`};
+  /* background-color: ${props => props.theme.colors.mainBackground}; */
+  /* box-shadow: ${props =>
+    props.isScrolled && `0px 0px 10px ${props.theme.colors.headerShadow}`}; */
   transition: all 0.2s ease-in-out;
 
   > div {
@@ -129,7 +129,7 @@ const Hamburger = styled.button`
   background: #fffdd0;
   border: none;
   padding: 0 15px;
-  color: ${props => props.theme.colors.highlighted};
+  /* color: ${props => props.theme.colors.highlighted}; */
   order: 2;
   ${mediaQuery[1]} {
     display: none;
